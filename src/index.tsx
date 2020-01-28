@@ -36,15 +36,24 @@ export interface LinkProps extends RouterLinkProps {
   preload?: AsyncRouteType<any>
 }
 
-export const Link: React.FC<LinkProps> = ({preload, ...props}) => {
-  const {onMouseEnter, onTouchStart} = props
-  props.onMouseEnter = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    onMouseEnter?.(e)
-    preload?.load()
+export const Link: React.FC<LinkProps> = initialProps => {
+  let props = initialProps
+  const preload = initialProps.preload
+
+  if (preload) {
+    props = Object.assign({}, initialProps)
+    delete props.preload
+    props.onMouseEnter = (
+      e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    ) => {
+      initialProps.onMouseEnter?.(e)
+      preload?.load()
+    }
+    props.onTouchStart = (e: React.TouchEvent<HTMLAnchorElement>) => {
+      initialProps.onTouchStart?.(e)
+      preload?.load()
+    }
   }
-  props.onTouchStart = (e: React.TouchEvent<HTMLAnchorElement>) => {
-    onTouchStart?.(e)
-    preload?.load()
-  }
+
   return React.createElement(RouterLink, props)
 }
