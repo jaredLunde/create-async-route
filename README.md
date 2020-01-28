@@ -63,13 +63,13 @@ function createAsyncRoute<P>(
 ): AsyncRouteType<P>
 ```
 
+Returns a `<Route>` from `react-router-dom` with a `load` method for
+preloading your async component. See [`AsyncRouteType`](#asyncroutetype)
+
 | Argument        | Type                                              | Required? | Description                                                   |
 | --------------- | ------------------------------------------------- | --------- | ------------------------------------------------------------- |
 | componentGetter | [`AsyncComponentGetter`](#asynccomponentgetter)   | Yes       | A function that returns a Promise e.g. an `import()` function |
 | options         | [`AsyncComponentOptions`](#asynccomponentoptions) | No        | See [`AsyncComponentOptions`](#asynccomponentoptions)         |
-
-Returns a `<Route>` from `react-router-dom` with a `load` method for
-preloading your async component. See [`AsyncRouteType`](#asyncroutetype)
 
 ### `<Link>`
 
