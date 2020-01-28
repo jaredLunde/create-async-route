@@ -5,17 +5,22 @@
   "repository": "github:jaredLunde/create-async-route",
   "bugs": "https://github.com/jaredLunde/create-async-route/issues",
   "license": "MIT",
-  "description": "",
+  "description": "A factory function for creating asynchronous react-router routes and a <Link> component with a preload prop for preloading those routes onMouseEnter.",
   "keywords": [
     "react",
     "react component",
-    "create async route"
+    "create async route",
+    "async route",
+    "async react router",
+    "react router async",
+    "react router"
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "files": [
     "/dist"
   ],
+  "types": "dist/cjs/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "build": "npm run build:cjs && npm run build:es && npm run build:types",
@@ -50,8 +55,10 @@
     "@testing-library/react": "latest",
     "@testing-library/react-hooks": "latest",
     "@types/jest": "latest",
+    "@types/node": "^13.5.1",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-router-dom": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "babel-plugin-optimize-react": "latest",
@@ -68,15 +75,18 @@
     "prettier": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-router-dom": "^5.1.2",
     "react-test-renderer": "latest",
     "rimraf": "^2.6.3",
     "ts-jest": "latest",
     "typescript": "latest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "create-async-component": "^1.0.4"
+  },
   "peerDependencies": {
-    "prop-types": ">=15.6",
     "react": ">=16.8",
-    "react-dom": ">=16.8"
+    "react-dom": ">=16.8",
+    "react-router-dom": ">=5"
   }
 }

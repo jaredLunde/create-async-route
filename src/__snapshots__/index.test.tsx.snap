@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createAsyncRoute() .load() should prevent loading state in production 1`] = `
+<DocumentFragment>
+  <div />
+</DocumentFragment>
+`;
+
+exports[`createAsyncRoute() should display error state 1`] = `
+<DocumentFragment>
+  Error!
+</DocumentFragment>
+`;
+
+exports[`createAsyncRoute() should display loading state 1`] = `
+<DocumentFragment>
+  Loading...
+</DocumentFragment>
+`;
+
+exports[`createAsyncRoute() should load regular components w/o loading state 1`] = `
+<DocumentFragment>
+  <div />
+</DocumentFragment>
+`;
