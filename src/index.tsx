@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import {
   Route,
   Link as RouterLink,
@@ -36,28 +36,31 @@ export function createAsyncRoute<P>(
 
 export function withPreload<P extends NavLinkProps>(
   Component: React.ComponentType<any>
-): React.FC<P> {
-  const AsyncLink: React.FC<P> = (initialProps: P) => {
+) {
+  const AsyncLink = forwardRef<any, P>((initialProps, ref: any) => {
     let props = initialProps
     const preload = initialProps.preload
 
-    if (preload) {
-      props = Object.assign({}, initialProps)
-      delete props.preload
-      props.onMouseEnter = (
-        e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-      ) => {
-        initialProps.onMouseEnter?.(e)
-        preload?.load()
-      }
-      props.onTouchStart = (e: React.TouchEvent<HTMLAnchorElement>) => {
-        initialProps.onTouchStart?.(e)
-        preload?.load()
+    if (preload || ref) {
+      props = Object.assign({ref}, initialProps)
+
+      if (preload) {
+        delete props.preload
+        props.onMouseEnter = (
+          e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+        ) => {
+          initialProps.onMouseEnter?.(e)
+          preload?.load()
+        }
+        props.onTouchStart = (e: React.TouchEvent<HTMLAnchorElement>) => {
+          initialProps.onTouchStart?.(e)
+          preload?.load()
+        }
       }
     }
 
     return React.createElement(Component, props)
-  }
+  })
 
   return AsyncLink
 }
