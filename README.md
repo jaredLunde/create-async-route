@@ -71,7 +71,7 @@ function createAsyncRoute<P>(
 Returns a `<Route>` from `react-router-dom` with a `load` method for
 preloading your async component. See [`AsyncRouteType`](#asyncroutetype)
 
-### Link
+### `<Link>`
 
 A [`react-router-dom/Link`](https://reacttraining.com/react-router/web/api/Link) component with a `preload` prop
 
@@ -82,6 +82,8 @@ This component provides all of the props found in [`react-router-dom/Link`](http
 | Prop    | Type                                     | Required? | Description                                                                                                                     |
 | ------- | ---------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | preload | [`AsyncRouteType<any>`](#asyncroutetype) | `false`   | Providing an async route component here will preload that component when `onMouseEnter` or `onTouchStart` is fired on the link. |
+
+## Types
 
 ### `AsyncRouteType`
 
