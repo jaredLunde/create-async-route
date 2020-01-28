@@ -83,6 +83,12 @@ describe('createAsyncRoute()', () => {
 })
 
 describe('<Link>', () => {
+  it('should render w/o preload', async () => {
+    expect(
+      render(<Link to="/" data-testid="link" />, {wrapper}).asFragment()
+    ).toMatchSnapshot()
+  })
+
   it('should preload a route onMouseEnter', async () => {
     const HomeRoute = createAsyncRoute(() => Promise.resolve(ComponentModule))
     HomeRoute.load = jest.fn()

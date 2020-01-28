@@ -83,6 +83,10 @@ This component provides all of the props found in [`react-router-dom/Link`](http
 | ------- | ---------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | preload | [`AsyncRouteType<any>`](#asyncroutetype) | `false`   | Providing an async route component here will preload that component when `onMouseEnter` or `onTouchStart` is fired on the link. |
 
+### `<NavLink>`
+
+A [`react-router-dom/NavLink`](https://reacttraining.com/react-router/web/api/Link) component with a `preload` prop. See [`<Link>`](#link).
+
 ## Types
 
 ### `AsyncRouteType`

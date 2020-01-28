@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Link> should render w/o preload 1`] = `
+<DocumentFragment>
+  <a
+    data-testid="link"
+    href="/"
+  />
+</DocumentFragment>
+`;
+
 exports[`createAsyncRoute() .load() should prevent loading state in production 1`] = `
 <DocumentFragment>
   <div />
