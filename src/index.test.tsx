@@ -6,7 +6,7 @@ import {StaticRouter} from 'react-router'
 import {createAsyncRoute, Link} from './index'
 
 const ComponentModule = {
-  default: () => <div />,
+  default: ({children}) => <div children={children} />,
 }
 const wrapper = props => <StaticRouter location="/" {...props} />
 
@@ -14,6 +14,22 @@ describe('createAsyncRoute()', () => {
   it('should load regular components w/o loading state', () => {
     const HomeRoute = createAsyncRoute(() => ComponentModule, {
       loading: () => 'Loading...',
+    })
+
+    let result
+    act(() => {
+      result = render(<HomeRoute path="/" />, {wrapper})
+    })
+
+    expect(result.asFragment()).toMatchSnapshot()
+  })
+
+  it('should accept custom Route components', () => {
+    const Route = ({component}) =>
+      React.createElement(component, {children: 'made it'})
+    const HomeRoute = createAsyncRoute(() => ComponentModule, {
+      loading: () => 'Loading...',
+      route: Route,
     })
 
     let result

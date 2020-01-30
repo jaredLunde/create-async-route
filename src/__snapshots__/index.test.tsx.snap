@@ -15,6 +15,14 @@ exports[`createAsyncRoute() .load() should prevent loading state in production 1
 </DocumentFragment>
 `;
 
+exports[`createAsyncRoute() should accept custom Route components 1`] = `
+<DocumentFragment>
+  <div>
+    made it
+  </div>
+</DocumentFragment>
+`;
+
 exports[`createAsyncRoute() should display error state 1`] = `
 <DocumentFragment>
   Error!
