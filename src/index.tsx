@@ -16,8 +16,8 @@ export interface AsyncRouteProps extends RouteProps {
   component?: never
 }
 
-export type AsyncRouteType<P> = React.FC<AsyncRouteProps> & {
-  load: AsyncComponentGetter<P>
+export type AsyncRouteType<P> = React.FC<P> & {
+  load: AsyncComponentGetter<any>
 }
 
 export type AsyncRouteOptions<P> = AsyncComponentOptions<P> & {
