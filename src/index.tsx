@@ -24,13 +24,13 @@ export type AsyncRouteOptions<P> = AsyncComponentOptions<P> & {
   route?: React.ComponentType<any>
 }
 
-export function createAsyncRoute<P>(
+export function createAsyncRoute<P = AsyncRouteProps>(
   component: AsyncComponentGetter<P>,
   options: AsyncRouteOptions<P> = {}
 ): AsyncRouteType<P> {
   const {route, ...otherOptions} = options
-  const Children = createAsyncComponent<P>(component, otherOptions)
-  const AsyncRoute = ({...props}: AsyncRouteProps) => {
+  const Children = createAsyncComponent<any>(component, otherOptions)
+  const AsyncRoute = ({...props}: P) => {
     // @ts-ignore
     props.component = Children
     return React.createElement(route || Route, props)
